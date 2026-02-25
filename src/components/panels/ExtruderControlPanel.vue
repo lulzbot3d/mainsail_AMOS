@@ -52,7 +52,7 @@
                     </v-list-item>
                     <!-- FILAMENT PURGE -->
                     <v-list-item v-if="purgeFilamentMacro">
-                        <v-tooltip top :disabled="canExecutePurgeMacro" color="primary">
+                        <v-tooltip top :disabled="canExecutePurgeMacro" color="secondary">
                             <template #activator="{ on }">
                                 <div v-on="on">
                                     <macro-button
@@ -100,13 +100,21 @@
         <!-- PRESSURE ADVANCE SETTINGS -->
         <template v-if="showPressureAdvance">
             <v-divider v-if="showTools || showFirmwareRetraction || showExtruderControl || showExtrusionFactor" />
-            <pressure-advance-settings />
+            <extruder-pressure-advance-settings v-if="extruderSteppers.length === 0" />
+            <template v-else>
+                <extruder-stepper-pressure-advance-settings
+                    v-for="(extruderStepper, index) in extruderSteppers"
+                    :key="extruderStepper"
+                    :class="{ 'pt-3': index === 0 }"
+                    :extruder-stepper="extruderStepper" />
+            </template>
         </template>
+
     </panel>
 </template>
 
 <script lang="ts">
-import { mdiPrinter3dNozzle, mdiDotsVertical, mdiMenuDown } from '@mdi/js'
+import { mdiPrinter3dNozzle, mdiDotsVertical } from '@mdi/js'
 import { Component, Mixins } from 'vue-property-decorator'
 import { PrinterStateMacro } from '@/store/printer/types'
 import BaseMixin from '@/components/mixins/base'
@@ -117,7 +125,6 @@ import ExtruderMixin from '@/components/mixins/extruder'
 export default class ExtruderControlPanel extends Mixins(BaseMixin, ControlMixin, ExtruderMixin) {
     mdiPrinter3dNozzle = mdiPrinter3dNozzle
     mdiDotsVertical = mdiDotsVertical
-    mdiMenuDown = mdiMenuDown
 
     private heatWaitGcodes = ['printer.extruder.can_extrude', 'TEMPERATURE_WAIT', 'M109']
 
