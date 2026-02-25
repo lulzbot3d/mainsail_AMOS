@@ -7,30 +7,6 @@
         card-class="extruder-control-panel">
         <!-- PANEL-HEADER 3-DOT-MENU -->
         <template #buttons>
-            <v-menu :offset-y="true" :close-on-content-click="false" left>
-                <template #activator="{ on, attrs }">
-                    <v-btn
-                        small
-                        color='#8b8b8b'
-                        v-bind="attrs"
-                        class="px-0"
-                        style="min-width: 32px;"
-                        v-on="on">
-                        <v-icon />
-                        <img height="40" src="@/assets/Meteor-01.svg" />
-                        <v-icon />
-                        <v-icon>{{ mdiMenuDown }}</v-icon>
-                    </v-btn>
-                </template>
-                <v-list dense>
-                    <v-list-item :disabled="printerIsPrintingOnly">
-                        <v-btn small color="#7b7b7b" style="width: 100%" @click="doSend('MET175')">MET175</v-btn>
-                    </v-list-item>
-                    <v-list-item :disabled="printerIsPrintingOnly">
-                        <v-btn small color="#7b7b7b" style="width: 100%" @click="doSend('MET285')">MET285</v-btn>
-                    </v-list-item>
-                </v-list>
-            </v-menu>
             <v-menu v-if="showFilamentMacros" :offset-y="true" :close-on-content-click="false" left>
                 <template #activator="{ on, attrs }">
                     <v-btn icon tile v-bind="attrs" v-on="on">
