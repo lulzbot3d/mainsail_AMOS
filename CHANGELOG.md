@@ -2013,7 +2013,7 @@ bugfix: update endstop status mutations
 ## [0.0.12](https://github.com/mainsail-crew/mainsail/releases/tag/v0.0.12) - 2020-05-11
 ### Features
 
-## [0.1.1](https://github.com/cdsmith69/mainsail_AMOS/releases/tag/v0.1.1) - 2024-04-12
+## [0.1.1](https://github.com/lulzbot3d/mainsail_AMOS/releases/tag/v0.1.1) - 2024-04-12
 
 ## [0.0.5](https://github.com/mainsail-crew/mainsail/releases/tag/v0.0.5) - 2020-03-13
 

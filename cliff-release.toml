@@ -41,7 +41,7 @@ footer = """
 
 # postprocessors
 postprocessors = [
-    { pattern = '<REPO>', replace = "https://github.com/cdsmith69/mainsail_AMOS" }, # replace repository URL
+    { pattern = '<REPO>', replace = "https://github.com/lulzbot3d/mainsail_AMOS" }, # replace repository URL
 ]
 
 

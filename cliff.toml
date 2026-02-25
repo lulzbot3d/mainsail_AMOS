@@ -11,7 +11,7 @@ All notable changes to Mainsail will be documented in this file.\n
 # https://tera.netlify.app/docs/#introduction
 body = """
 {% if version %}\
-    ## [{{ version | trim_start_matches(pat="v") }}](https://github.com/cdsmith69/mainsail_AMOS/releases/tag/{{version}}) - {{ timestamp | date(format="%Y-%m-%d") }}    
+    ## [{{ version | trim_start_matches(pat="v") }}](https://github.com/lulzbot3d/mainsail_AMOS/releases/tag/{{version}}) - {{ timestamp | date(format="%Y-%m-%d") }}    
 \
 {% else %}\
     ## [unreleased]
@@ -47,7 +47,7 @@ footer = """
 
 # postprocessors
 postprocessors = [
-    { pattern = '<REPO>', replace = "https://github.com/cdsmith69/mainsail_AMOS" }, # replace repository URL
+    { pattern = '<REPO>', replace = "https://github.com/lulzbot3d/mainsail_AMOS" }, # replace repository URL
 ]
 
 [git]

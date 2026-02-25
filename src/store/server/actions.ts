@@ -60,7 +60,7 @@ export const actions: ActionTree<ServerState, RootState> = {
                 client_name: 'mainsail',
                 version: rootState.packageVersion,
                 type: 'web',
-                url: 'https://github.com/cdsmith69/mainsail_AMOS',
+                url: 'https://github.com/lulzbot3d/mainsail_AMOS',
             },
             { action: 'server/setConnectionId' }
         )
