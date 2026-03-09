@@ -143,7 +143,7 @@
                                         v-else-if="actionButton === 'ztilt'"
                                         :disabled="['printing'].includes(printer_state)"
                                         :loading="loadings.includes('zTilt')"
-                                        :color="'#7b7b7b'"
+                                        :color="colorZTilt"
                                         height="30"
                                         dense
                                         tile

@@ -65,7 +65,7 @@ export default class ControlMixin extends Vue {
             status = this.$store.state.printer.z_tilt_ng?.applied
         }
 
-        return status ? 'primary' : 'warning'
+        return status ? '' : '#7b7b7b'
     }
 
     get defaultActionButton() {
