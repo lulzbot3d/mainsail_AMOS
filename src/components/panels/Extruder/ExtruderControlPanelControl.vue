@@ -62,7 +62,7 @@
                     <!-- EXTRUDE AND RETRACT BUTTON LARGE SIZED PANEL -->
                     <v-col v-if="el.is.large" class="col-3 d-flex align-center flex-column justify-center">
                         <!-- RETRACT -->
-                        <v-tooltip left :disabled="extrudePossible && !tooLargeExtrusion" color="primary">
+                        <v-tooltip left :disabled="extrudePossible && !tooLargeExtrusion" color="secondary">
                             <template #activator="{ on }">
                                 <div class="mb-4" v-on="on">
                                     <v-btn
