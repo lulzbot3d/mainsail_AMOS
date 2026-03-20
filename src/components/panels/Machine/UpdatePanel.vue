@@ -7,19 +7,6 @@
             card-class="machine-update-panel"
             :collapsible="true">
             <template #buttons>
-                <v-btn
-                    text
-                    color="primary"
-                    small
-                    :disabled="['printing', 'paused'].includes(printer_state)"
-                    @click="clickUpdate">
-                    <v-icon left>{{ mdiProgressUpload }}</v-icon>
-                    {{ $t('Machine.UpdatePanel.UpdateAll') }}
-                </v-btn>
-                <update-hint-all
-                    :bool-show-dialog="boolShowDialog"
-                    @close-dialog="boolShowDialog = false"
-                    @update-all="updateAll" />
                 <v-tooltip top>
                     <template #activator="{ on, attrs }">
                         <v-btn
@@ -74,7 +61,7 @@ import Panel from '@/components/ui/Panel.vue'
 import UpdatePanelEntry from '@/components/panels/Machine/UpdatePanel/Entry.vue'
 import UpdatePanelEntrySystem from '@/components/panels/Machine/UpdatePanel/EntrySystem.vue'
 import UpdatePanelEntryAll from '@/components/panels/Machine/UpdatePanel/EntryAll.vue'
-import { mdiRefresh, mdiInformation, mdiCloseThick, mdiUpdate, mdiProgressUpload } from '@mdi/js'
+import { mdiRefresh, mdiInformation, mdiCloseThick, mdiUpdate } from '@mdi/js'
 import { ServerUpdateManagerStateGuiList } from '@/store/server/updateManager/types'
 import semver from 'semver'
 
@@ -86,9 +73,6 @@ export default class UpdatePanel extends Mixins(BaseMixin) {
     mdiInformation = mdiInformation
     mdiCloseThick = mdiCloseThick
     mdiUpdate = mdiUpdate
-    mdiProgressUpload = mdiProgressUpload
-
-    boolShowDialog = false
 
     get enableUpdateManager() {
         return this.$store.state.server.components.includes('update_manager')
@@ -148,23 +132,6 @@ export default class UpdatePanel extends Mixins(BaseMixin) {
             { refresh: true },
             { action: 'server/updateManager/onUpdateStatus', loading: 'loadingBtnSyncUpdateManager' }
         )
-    }
-
-    get hideUpdateWarning() {
-        return this.$store.state.gui.uiSettings.hideUpdateWarnings ?? false
-    }
-
-    clickUpdate() {
-        if (this.hideUpdateWarning) {
-            this.updateAll()
-            return
-        }
-
-        this.boolShowDialog = true
-    }
-
-    updateAll() {
-        this.$socket.emit('machine.update.full', {})
     }
 }
 </script>
