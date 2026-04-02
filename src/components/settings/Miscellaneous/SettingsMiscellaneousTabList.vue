@@ -42,6 +42,10 @@ export default class SettingsMiscellaneousTabList extends Mixins(BaseMixin, Misc
                 if ('white_pin' in config) colorOrder += 'W'
             }
 
+            if (light.type.toLowerCase() === 'dotstar') {   // This gets presets to show for dotstar LEDs in the settings page.
+                colorOrder = 'RGB'
+            }
+
             return {
                 ...light,
                 colorOrder: colorOrder,

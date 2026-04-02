@@ -151,6 +151,10 @@ export default class SettingsMiscellaneousTabLightPresetsForm extends Mixins(Bas
     }
 
     get colorOrder() {
+        if (this.type?.toLowerCase() === 'dotstar') {   // This gets the color wheel to show for dotstar LEDs in the preset edit form.
+            return 'RGB'
+        }
+
         if (this.type?.toLowerCase() === 'led') {
             let colorOrder = ''
             if ('red_pin' in this.settings) colorOrder += 'R'

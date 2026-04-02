@@ -82,6 +82,10 @@ export default class MiscellaneousLightNeopixel extends Mixins(BaseMixin) {
     }
 
     get colorOrder() {
+        if (this.type === 'dotstar') {   // This gets the color selection to send RGB parameters in the SET_LED command for dotstar LEDs.
+            return 'RGB'
+        }
+
         if (this.type !== 'led') {
             const colorOrder = this.settings.color_order ?? []
 

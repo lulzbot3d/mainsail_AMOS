@@ -170,6 +170,10 @@ export default class MiscellaneousLightNeopixelDialog extends Mixins(BaseMixin) 
     }
 
     get colorOrder() {
+        if (this.type === 'dotstar') {    // This gets the color selector wheel to show for dotstar LEDs.
+           return 'RGB'
+        }
+
         if (this.type !== 'led') {
             const colorOrder = this.settings.color_order ?? []
 
