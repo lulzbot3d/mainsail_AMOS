@@ -97,7 +97,7 @@
         </v-container>
         <!-- SPEED FACTOR -->
         <v-divider v-if="showSpeedFactor" />
-        <v-container v-if="printerIsPrintingOnly && showSpeedFactor">
+        <v-container v-if="showSpeedFactor">
             <tool-slider
                 :label="$t('Panels.ToolheadControlPanel.SpeedFactor')"
                 :icon="mdiSpeedometer"
