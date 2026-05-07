@@ -7,7 +7,7 @@
                     small
                     :disabled="['printing'].includes(printer_state)"
                     :loading="loadings.includes('homeAll')"
-                    :color="homedAxes.includes('xyz') ? 'primary' : 'warning'"
+                    :color="homedAxes.includes('xyz') ? '' : '#7b7b7b'"
                     @click="doHome">
                     <v-icon class="mr-1">{{ mdiHome }}</v-icon>
                     {{ $t('Panels.ToolheadControlPanel.ALL') }}
@@ -16,7 +16,7 @@
                     v-if="enableXYHoming"
                     :disabled="['printing'].includes(printer_state)"
                     :loading="loadings.includes('homeAll')"
-                    :color="homedAxes.includes('xy') ? 'primary' : 'warning'"
+                    :color="homedAxes.includes('xy') ? '' : '#7b7b7b'"
                     small
                     class="ml-2"
                     @click="doHomeXY">
@@ -46,7 +46,7 @@
                 <v-btn
                     small
                     :disabled="['printing'].includes(printer_state)"
-                    :color="homedAxes !== '' ? 'primary' : 'warning'"
+                    :color="homedAxes !== '' ? '' : '#7b7b7b'"
                     class="ml-2"
                     @click="doSend('M84')">
                     <v-icon>{{ mdiEngineOff }}</v-icon>
@@ -67,7 +67,7 @@
                     </v-btn>
                     <v-btn
                         :disabled="['printing'].includes(printer_state)"
-                        :color="homedAxes.includes('x') ? 'primary' : 'warning'"
+                        :color="homedAxes.includes('x') ? '' : '#7b7b7b'"
                         :loading="loadings.includes('homeX')"
                         class="font-weight-bold btnHomeAxis btnGroup"
                         @click="doHomeX">
@@ -98,7 +98,7 @@
                     </v-btn>
                     <v-btn
                         :disabled="['printing'].includes(printer_state)"
-                        :color="homedAxes.includes('y') ? 'primary' : 'warning'"
+                        :color="homedAxes.includes('y') ? '' : '#7b7b7b'"
                         :loading="loadings.includes('homeY')"
                         class="font-weight-bold btnHomeAxis btnGroup"
                         @click="doHomeY">
@@ -129,7 +129,7 @@
                     </v-btn>
                     <v-btn
                         :disabled="['printing'].includes(printer_state)"
-                        :color="homedAxes.includes('z') ? 'primary' : 'warning'"
+                        :color="homedAxes.includes('z') ? '' : '#7b7b7b'"
                         :loading="loadings.includes('homeZ')"
                         class="font-weight-bold btnHomeAxis btnGroup"
                         @click="doHomeZ">
@@ -219,7 +219,7 @@ export default class BarsControl extends Mixins(BaseMixin, ControlMixin) {
         border-width: thin;
         box-shadow: none;
         height: 28px;
-        opacity: 0.8;
+        opacity: 1.0;
         min-width: auto !important;
     }
 
