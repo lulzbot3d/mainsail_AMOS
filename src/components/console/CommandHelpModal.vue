@@ -32,12 +32,14 @@
                     <v-row>
                         <v-col>
                             <v-text-field
+                                ref="searchField"
                                 v-model="cmdListSearch"
                                 :label="$t('Console.Search')"
                                 outlined
                                 hide-details
                                 clearable
-                                dense />
+                                dense
+                                autofocus />
                         </v-col>
                     </v-row>
                 </v-card-title>
@@ -100,7 +102,15 @@ export default class CommandHelpModal extends Mixins(BaseMixin) {
 
     @Watch('isOpen')
     onIsOpen(val: boolean): void {
-        if (val) return
+        if (val) {
+            this.$nextTick(() => {
+                const field = this.$refs.searchField as any
+                if (field && typeof field.focus === 'function') {
+                    field.focus()
+                }
+            })
+            return
+        }
 
         this.cmdListSearch = ''
     }
